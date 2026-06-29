@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Змейка - Улучшенная версия</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🐍 Змейка</h1>
+        
+        <div class="difficulty-selector">
+            <button class="difficulty-btn" data-difficulty="easy">Легко</button>
+            <button class="difficulty-btn active" data-difficulty="medium">Средне</button>
+            <button class="difficulty-btn" data-difficulty="hard">Сложно</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-label">Счёт</div>
+                <div class="stat-value" id="score">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Рекорд</div>
+                <div class="stat-value" id="highScore">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Уровень</div>
+                <div class="stat-value" id="level">1</div>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+        <div class="food-legend">
+            <div class="food-item">
+                <div class="food-icon normal"></div>
+                <span>+10 очков</span>
+            </div>
+            <div class="food-item">
+                <div class="food-icon bonus"></div>
+                <span>+50 очков</span>
+            </div>
+            <div class="food-item">
+                <div class="food-icon speed"></div>
+                <span>Ускорение</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="startBtn">Начать игру</button>
+            <button id="pauseBtn" disabled>Пауза</button>
+            <button id="resetBtn">Сброс</button>
+        </div>
+
+        <div class="mobile-controls">
+            <div class="row">
+                <button id="upBtn">↑</button>
+            </div>
+            <div class="row">
+                <button id="leftBtn">←</button>
+                <button id="downBtn">↓</button>
+                <button id="rightBtn">→</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="game-over" id="gameOver">
+        <button class="close-btn" id="closeBtn">&times;</button>
+        <h2>Игра окончена!</h2>
+        <p>Ваш счёт: <strong id="finalScore">0</strong></p>
+        <p>Длина змейки: <strong id="finalLength">0</strong></p>
+        <div class="high-scores">
+            <h3>🏆 Лучшие результаты</h3>
+            <ol id="highScoresList"></ol>
+        </div>
+        <button id="playAgainBtn" style="margin-top: 20px;">Играть снова</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
